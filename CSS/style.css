@@ -121,13 +121,15 @@ html {
 }
 
 .quotes-container::before {
-  content: """;
+  content: "\""; /* Usando escape para as aspas */
   position: absolute;
   top: 20px;
   left: 20px;
   font-size: 5rem;
   color: rgba(255,255,255,0.1);
   font-family: serif;
+  font-weight: bold;
+  z-index: 0;
 }
 
 .quotes-container blockquote {
