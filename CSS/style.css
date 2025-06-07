@@ -1,76 +1,201 @@
+:root {
+  --primary-color: #ff5500; /* Laranja inspirado no estilo punk */
+  --secondary-color: #333333;
+  --accent-color: #ffaa00;
+  --text-color: #333333;
+  --light-bg: #f8f8f8;
+  --dark-bg: #222222;
+  --card-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
 html {
-  font-family: Helvetica;
-  background-color: #ddd;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
 .container {
-  max-width: 1100px;
-  background-color: #fff;
+  max-width: 900px;
+  background-color: white;
   position: relative;
-  margin: 50px auto;
-  padding: 20px 50px;
+  margin: 40px auto;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
 }
 
 .bold {
-  font-weight: bold;
+  font-weight: 700;
 }
 
-/* header */
+/* Header */
 .header {
   text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.header::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: var(--primary-color);
+  margin: 20px auto;
 }
 
 .main-title {
-  font-size: 40px;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--dark-bg);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .main-paragraph {
   font-style: italic;
+  font-size: 1.2rem;
+  color: #666;
 }
 
-/* Imagem destaque */
+/* Featured Image */
 .featured-image {
   text-align: center;
-  margin-top: 30px;
+  margin: 40px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
 }
 
-/* Biografia */
+.featured-image img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.featured-image:hover img {
+  transform: scale(1.02);
+}
+
+/* Biography */
 .biography-container {
-  padding: 25px 0;
-  margin: 25px 0;
-  border-top: 1px dashed #ddd;
-  border-bottom: 1px dashed #ddd;
+  padding: 30px 0;
+  margin: 30px 0;
+  border-top: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.biography-container h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.biography-container h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50%;
+  height: 3px;
+  background: var(--accent-color);
 }
 
 /* Quotes */
 .quotes-container {
-  background-color: #ddd;
-  padding: 30px;
+  background: linear-gradient(135deg, var(--dark-bg), #444);
+  padding: 40px;
+  border-radius: 8px;
+  color: white;
+  margin: 40px 0;
+  position: relative;
+}
+
+.quotes-container::before {
+  content: """;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 5rem;
+  color: rgba(255,255,255,0.1);
+  font-family: serif;
 }
 
 .quotes-container blockquote {
-  font-weight: bold;
-  font-size: 30px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .quotes-container p {
   font-style: italic;
+  text-align: right;
+  color: var(--accent-color);
 }
 
-/* Curiosidades */
+/* Curiosities */
 .curiosities-container {
-  padding: 25px 0;
-  margin: 25px 0;
-  border-top: 1px dashed #ddd;
-  border-bottom: 1px dashed #ddd;
+  padding: 30px 0;
+  margin: 30px 0;
+}
+
+.curiosities-container h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.curiosities-container ul {
+  list-style-type: none;
+  padding: 0;
 }
 
 .curiosities-container li {
-  height: 30px;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: rgba(255,85,0,0.05);
+  border-left: 4px solid var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.curiosities-container li:hover {
+  background-color: rgba(255,85,0,0.1);
+  transform: translateX(5px);
 }
 
 /* Imagem bold */
 .img-bold {
   font-weight: bold;
   text-align: center;
+  margin: 30px 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  .main-title {
+    font-size: 2.5rem;
+  }
+  
+  .quotes-container blockquote {
+    font-size: 1.4rem;
+  }
 }
